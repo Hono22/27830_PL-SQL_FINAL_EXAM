@@ -110,7 +110,7 @@ flowchart TD
     class B,D,F,G,I data
     class H,J,K system
 
-```
+
 
 ## 🔍 Scope & Purpose
 This phase models the **talent management workflow** of the Moonlight Agency system, covering how celebrities are registered, how bookings are created, how payments are recorded, and how automated alerts support the decision-making process.  
