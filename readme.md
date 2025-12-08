@@ -82,7 +82,7 @@ The system will serve:
 
 ---
 
-# 🧭 Phase I Mermaid Diagram (Custom Based on Your Tables)
+# 🧭 Phase II UML/BPMN Diagram (Custom Based on Your Tables)
 
 ```mermaid
 flowchart TD
