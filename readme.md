@@ -109,4 +109,4 @@ flowchart TD
     class A,C,E actor
     class B,D,F,G,I data
     class H,J,K system
-The diagram visualizes how different actors and system components interact within the Moonlight Agency workflow. It shows how the **Celebrity Manager** registers talent, how **Brand Representatives** request bookings, and how **Finance Officers** process payments. The diagram highlights the automatic processes built into the system, including **conflict detection**, **contract expiry monitoring**, and **system-generated notifications**. Each entity (Celebrity, Booking, Payment, Awards, Notifications) is represented as a node, demonstrating how data flows between different parts of the agency. This diagram summarises the entire operational flow and shows how the PL/SQL database supports automation and decision-making.
+
