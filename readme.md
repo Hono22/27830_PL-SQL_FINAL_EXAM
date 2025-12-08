@@ -82,7 +82,7 @@ The system will serve:
 
 ---
 
-# 🧭 Phase II UML/BPMN Diagram (Custom Based on Your Tables)
+# 🧭 Phase II UML/BPMN Diagram
 
 ```mermaid
 flowchart TD
@@ -110,3 +110,90 @@ flowchart TD
     class B,D,F,G,I data
     class H,J,K system
 
+
+
+## 🔍 Scope & Purpose
+This phase models the **talent management workflow** of the Moonlight Agency system, covering how celebrities are registered, how bookings are created, how payments are recorded, and how automated alerts support the decision-making process.  
+The MIS ensures smoother agency operations by reducing manual errors, improving schedule accuracy, and enabling real-time financial and contract monitoring.
+
+---
+
+## 👥 Key Actors
+
+| Role                 | Responsibility |
+|----------------------|----------------|
+| **Celebrity Manager**    | Registers celebrities, updates contract details, reviews alerts |
+| **Brand Representative** | Submits booking requests for events |
+| **Finance Officer**      | Records booking payments and updates revenue |
+| **Booking System**       | Creates and validates bookings, checks for conflicts |
+| **Alert Engine**         | Sends alerts for conflicts, expirations, and unpaid bookings |
+
+---
+
+## 🖼️ Process Diagram
+
+### ✅ Tools Used:
+- **Mermaid** (Lightweight Markdown diagramming)  
+- **Draw.io** (Standard BPMN modeling)
+
+---
+
+### 🔗 Mermaid Diagram  
+![Mermaid Diagram](./screenshots/Phase%20II/moonlightPhaseII.png)
+
+---
+
+### 🧩 Draw.io BPMN Diagram  
+![Draw.io Diagram](./screenshots/Phase%20II/moonlightPhaseII.drawio.png)
+
+---
+
+## 🧠 MIS Value & Flow Summary
+The process begins with the **Celebrity Manager** registering a new celebrity. When a **Brand Representative** submits a booking request, the **Booking System** evaluates the request and checks for scheduling conflicts.
+
+If a **conflict is detected**, the **Alert Engine** notifies the manager.  
+If **no conflict** exists, the **Finance Officer** records the payment, and the system updates the revenue details.
+
+Next, the system checks if a celebrity’s **contract is expired or close to expiring**. If so, the **Alert Engine** sends a contract-expiry alert automatically.
+
+This MIS workflow supports the agency by:
+- Enabling **real-time decision-making**
+- Improving **operational efficiency**
+- Reducing **manual scheduling errors**
+- Ensuring **accurate financial tracking**
+- Maintaining **up-to-date contract records**
+
+---
+
+## 💻 Mermaid Code Reference
+
+```mermaid
+flowchart TD
+  start([● Process Start]) --> A1["🧑‍🎤 Celebrity Manager\nRegister Celebrity"]
+  A1 --> B1["🏢 Brand Submits\nBooking Request"]
+  B1 --> S1["📄 System Creates Booking"]
+
+  S1 --> D1{{"🔍 Conflict Detected?"}}
+
+  D1 -- Yes --> N1["❗ Send Conflict Alert"]
+  N1 --> end1([⚠ Process Ends])
+
+  D1 -- No --> F1["💰 Finance Officer\nRecord Payment"]
+  F1 --> R1["📊 Update Revenue"]
+
+  R1 --> C1{{"📅 Contract Expired?"}}
+
+  C1 -- Yes --> N2["🚨 Contract Expiry Alert"]
+  N2 --> end1
+
+  C1 -- No --> end2([✅ Process Completed])
+
+  classDef manager fill:#f9f,stroke:#333;
+  classDef brand fill:#bbf,stroke:#333;
+  classDef finance fill:#9f9,stroke:#333;
+  classDef system fill:#f96,stroke:#333;
+
+  class A1 manager
+  class B1 brand
+  class F1 finance
+  class S1,D1,R1,C1,N1,N2 system
