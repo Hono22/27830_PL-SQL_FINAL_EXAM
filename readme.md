@@ -198,3 +198,127 @@ flowchart TD
   class B1 brand
   class F1 finance
   class S1,D1,R1,C1,N1,N2 system
+
+```
+# 🧩 Phase III: Logical Model Design
+
+## 🎯 Objective
+The Moonlight Agency PL/SQL system manages celebrities, bookings, brands, payments, awards, and automated notifications.  
+This phase focuses on converting these real-world requirements into a **fully normalized (3NF)** logical database model with correct primary keys, foreign keys, and constraints.
+
+The goal is to design a relational structure that ensures:
+- Accurate tracking of bookings and payments  
+- Reliable conflict detection  
+- Centralized celebrity and brand information  
+- Automated alert generation  
+- Clean, normalized, scalable data management  
+
+---
+
+## 🗃️ Entities & Attributes
+
+### 🧑‍🎤 CELEBRITY
+| Attribute              | Type          | Constraint                                   |
+|------------------------|---------------|-----------------------------------------------|
+| celebrity_id           | NUMBER        | Primary Key (Auto-generated)                 |
+| full_name              | VARCHAR2(150) | NOT NULL                                     |
+| category               | VARCHAR2(100) | NOT NULL                                     |
+| management_fee         | NUMBER(10,2)  | CHECK (management_fee > 0)                   |
+| contract_start_date    | DATE          | NOT NULL                                     |
+| contract_end_date      | DATE          | NOT NULL                                     |
+| contact_details        | VARCHAR2(200) | NOT NULL                                     |
+
+---
+
+### 🏢 BRAND
+| Attribute     | Type          | Constraint                       |
+|---------------|---------------|----------------------------------|
+| brand_id      | NUMBER        | Primary Key (Auto-generated)     |
+| brand_name    | VARCHAR2(120) | NOT NULL                         |
+| company_type  | VARCHAR2(100) | NOT NULL                         |
+| email         | VARCHAR2(150) | UNIQUE, NOT NULL                 |
+| phone         | VARCHAR2(20)  | NOT NULL                         |
+
+---
+
+### 📄 BOOKING
+| Attribute       | Type          | Constraint                                          |
+|------------------|--------------|------------------------------------------------------|
+| booking_id       | NUMBER       | Primary Key (Auto-generated)                        |
+| celebrity_id     | NUMBER       | Foreign Key → CELEBRITY                             |
+| brand_id         | NUMBER       | Foreign Key → BRAND                                 |
+| event_date       | DATE         | NOT NULL                                            |
+| event_type       | VARCHAR2(100)| NOT NULL                                            |
+| event_location   | VARCHAR2(150)| NOT NULL                                            |
+| booking_fee      | NUMBER(10,2) | CHECK (booking_fee > 0)                             |
+| status           | VARCHAR2(50) | CHECK (status IN ('Pending','Confirmed','Cancelled')) |
+
+---
+
+### 💰 PAYMENT
+| Attribute      | Type            | Constraint                                  |
+|----------------|-----------------|-----------------------------------------------|
+| payment_id     | NUMBER          | Primary Key (Auto-generated)                |
+| booking_id     | NUMBER          | Foreign Key → BOOKING                       |
+| payment_date   | DATE            | DEFAULT SYSDATE                             |
+| amount_paid    | NUMBER(10,2)    | CHECK (amount_paid >= 0)                    |
+| payment_status | VARCHAR2(50)    | CHECK (payment_status IN ('Paid','Pending'))|
+
+---
+
+### 🏆 AWARDS
+| Attribute       | Type          | Constraint                      |
+|------------------|--------------|----------------------------------|
+| award_id         | NUMBER       | Primary Key (Auto-generated)    |
+| celebrity_id     | NUMBER       | Foreign Key → CELEBRITY         |
+| award_name       | VARCHAR2(120)| NOT NULL                        |
+| award_year       | NUMBER(4)    | CHECK (award_year >= 1900)      |
+
+---
+
+### 🔔 NOTIFICATIONS
+| Attribute        | Type          | Constraint                       |
+|------------------|---------------|-----------------------------------|
+| notification_id  | NUMBER        | Primary Key (Auto-generated)      |
+| message          | VARCHAR2(255) | NOT NULL                          |
+| created_at       | DATE          | DEFAULT SYSDATE                   |
+
+---
+
+## 🔄 Relationships & Constraints
+- **CELEBRITY → BOOKING** → 1:N  
+- **BRAND → BOOKING** → 1:N  
+- **BOOKING → PAYMENT** → 1:N  
+- **CELEBRITY → AWARDS** → 1:N  
+- **BOOKING → NOTIFICATIONS (indirect)**  
+- Foreign keys enforce referential integrity  
+- CHECK constraints ensure valid business rules  
+- UNIQUE emails avoid duplication  
+
+---
+
+## 📐 Normalization (3NF Verified)
+
+- ✅ **1NF:** All attributes have atomic values  
+- ✅ **2NF:** No partial dependencies (all non-PK attributes depend on full PK)  
+- ✅ **3NF:** No transitive dependencies (non-PK attributes depend only on PK)  
+- Ensures clean, consistent, and scalable data  
+
+---
+
+## 🖼️ ERD Diagram
+
+> 🟦 **Visual Placeholder: Logical Model ERD**  
+> 👉 *This is where your Moonlight Agency ERD images appear.*
+
+### ERD Part 1  
+![ERD - Logical Model](./screenshots/Phase%20III/ERD1.png)
+
+---
+
+### ERD Part 2  
+![ERD - Logical Model](./screenshots/Phase%20III/ERD2.png)
+
+---
+
+# ✅ End of Phase III
