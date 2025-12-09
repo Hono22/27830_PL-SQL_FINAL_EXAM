@@ -357,13 +357,7 @@ SQL Developer was used as an alternative to Oracle Enterprise Manager (OEM) to c
 
 ---
 
-## 🔑 SQL Scripts Executed
 
-```sql
-ALTER SESSION SET CONTAINER = mon_27830_MA_DB;
-CREATE USER 27830_Uwumurumyi IDENTIFIED BY Honorine;
-GRANT ALL PRIVILEGES TO ;
-GRANT SYSDBA TO hpnorine27830;
 
 
 # 🧱 Phase V: Table Implementation and Data Insertion
