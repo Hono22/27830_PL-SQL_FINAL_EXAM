@@ -312,15 +312,9 @@ The goal is to design a relational structure that ensures:
 > 👉 *This is where your Moonlight Agency ERD images appear.*
 
 ### ERD Part 1  
-![ERD - Logical Model](./screenshots/Phase%20III/ERD1.png)
+![ERD - Logical Model](SCREENSHOTS/PHASE%20III/ERD.png)
 
 ---
-
-### ERD Part 2  
-![ERD - Logical Model](./screenshots/Phase%20III/ERD2.png)
-
----
-
 
 
 
@@ -469,7 +463,7 @@ A join query was executed to verify foreign key relationships and confirm data c
 - No orphaned or invalid foreign key values  
 - Data behaves as expected under business rules  
 
-![Data Integrity Output](./screenshots/Phase%20V/data_integrity.png)
+![Data Integrity Output](SCREENSHOTS/PHASE%20V/seq.png)
 
 ---
 
@@ -543,7 +537,7 @@ This procedure automates:
 - Conflict detection  
 - Notification generation  
 
-![Procedure](./screenshots/Phase%20VI/procedures.png)
+![Procedure](SCREENSHOTS/PHASE%20VI/book_proc.png)
 
 ---
 
@@ -551,7 +545,7 @@ This procedure automates:
 A cursor was used to retrieve upcoming bookings for celebrities.  
 This supports reporting and scheduling.
 
-![Cursor Procedure](./screenshots/Phase%20VI/procedure%20completed%20by%20cursors.png)
+![Cursor Procedure](SCREENSHOTS/PHASE%20VI/cursor.png)
 
 ---
 
@@ -563,14 +557,14 @@ All procedures, functions, and triggers were tested via anonymous PL/SQL blocks.
 ## ✅ Function Testing: `get_celebrity_revenue`
 This function returns the **total earnings** for any celebrity.
 
-![Function](./screenshots/Phase%20VI/TEST%20.png)
+![Function](SCREENSHOTS/PHASE%20VI/rev_test.png)
 
 ---
 
 ## 🚨 Trigger Testing: Booking Activity Logging
 A trigger was created to automatically log booking creation activities into the NOTIFICATIONS table.
 
-![Trigger](./screenshots/Phase%20VI/TEST%201%20ON%20products.png)
+![Trigger](SCREENSHOTS/PHASE%20VI/testbook.png)
 
 ---
 
@@ -587,9 +581,9 @@ This package bundles:
 - Reusable operations  
 - Cleaner PL/SQL structure  
 
-![Package spec](./screenshots/Phase%20VI/pack%20spec.png)
+![Package spec](SCREENSHOTS/PHASE%20VI/package.png)
 
-![Package body](./screenshots/Phase%20VI/package%20bod1.png)
+![Package body](SCREENSHOTS/PHASE%20VI/moonlight.png)
 
 ---
 
