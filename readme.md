@@ -381,37 +381,37 @@ All tables were created successfully according to the normalized design.
 
 ### 🧱 Table: CELEBRITY
 
-![Celebrity Table Created](./screenshots/Phase%20V/celebrity_created.png)
+![Celebrity Table Created](SCREENSHOTS/PHASE%20V/celebrity.png)
 
 ---
 
 ### 🧱 Table: BRAND
 
-![Brand Table Created](./screenshots/Phase%20V/brand_created.png)
+![Brand Table Created](SCREENSHOTS/PHASE%20V/brand.png)
 
 ---
 
 ### 🧱 Table: BOOKING
 
-![Booking Table Created](./screenshots/Phase%20V/booking_created.png)
+![Booking Table Created](SCREENSHOTS/PHASE%20V/booking.png)
 
 ---
 
 ### 🧱 Table: PAYMENT
 
-![Payment Table Created](./screenshots/Phase%20V/payment_created.png)
+![Payment Table Created](SCREENSHOTS/PHASE%20V/payment.png)
 
 ---
 
 ### 🧱 Table: AWARDS
 
-![Awards Table Created](./screenshots/Phase%20V/awards_created.png)
+![Awards Table Created](SCREENSHOTS/PHASE%20V/awards.png)
 
 ---
 
 ### 🧱 Table: NOTIFICATIONS
 
-![Notifications Table Created](./screenshots/Phase%20V/notifications_created.png)
+![Notifications Table Created](SCREENSHOTS/PHASE%20V/notification.png)
 
 ---
 
