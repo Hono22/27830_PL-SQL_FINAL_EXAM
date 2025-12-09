@@ -347,13 +347,13 @@ SQL Developer was used as an alternative to Oracle Enterprise Manager (OEM) to c
 
 ## 📸 Screenshot: PDB Creation in SQL Developer
 
-![PDB Creation](./screenshots/Phase%20IV/pdb.png)
+![PDB Creation](SCREENSHOTS/PHASE%20IV/puggable.png)
 
 ---
 
 ## 📸 Screenshot: User Created and Privileges Granted
 
-![Privileges](./screenshots/Phase%20IV/privileges.png)
+![Privileges](SCREENSHOTS/PHASE%20IV/priviliges.png)
 
 ---
 
