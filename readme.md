@@ -423,37 +423,37 @@ Realistic data entries were inserted into each table to reflect actual entertain
 
 ### 🗃️ Insertion: CELEBRITY
 
-![Celebrity Data Inserted](./screenshots/Phase%20V/celebrity_data.png)
+![Celebrity Data Inserted](SCREENSHOTS/PHASE%20V/celeb1.png)
 
 ---
 
 ### 🗃️ Insertion: BRAND
 
-![Brand Data Inserted](./screenshots/Phase%20V/brand_data.png)
+![Brand Data Inserted](SCREENSHOTS/PHASE%20V/bra1.png)
 
 ---
 
 ### 🗃️ Insertion: BOOKING
 
-![Booking Data Inserted](./screenshots/Phase%20V/booking_data.png)
+![Booking Data Inserted](SCREENSHOTS/PHASE%20V/book.png)
 
 ---
 
 ### 🗃️ Insertion: PAYMENT
 
-![Payment Data Inserted](./screenshots/Phase%20V/payment_data.png)
+![Payment Data Inserted](SCREENSHOTS/PHASE%20V/pay.png)
 
 ---
 
 ### 🗃️ Insertion: AWARDS
 
-![Awards Data Inserted](./screenshots/Phase%20V/awards_data.png)
+![Awards Data Inserted](SCREENSHOTS/PHASE%20V/awa.png)
 
 ---
 
 ### 🗃️ Insertion: NOTIFICATIONS
 
-![Notifications Data Inserted](./screenshots/Phase%20V/notifications_data.png)
+![Notifications Data Inserted](SCREENSHOTS/PHASE%20V/log.png)
 
 ---
 
