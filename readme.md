@@ -321,4 +321,204 @@ The goal is to design a relational structure that ensures:
 
 ---
 
-# ✅ End of Phase III
+
+
+
+# 🏗️ Phase IV: Database Creation and Access Setup (SQL Developer)
+
+## 🎯 Objective
+This phase establishes the dedicated Oracle development environment for the **Moonlight Agency Management System**.  
+SQL Developer was used as an alternative to Oracle Enterprise Manager (OEM) to configure the pluggable database, create the system user, and assign privileges.
+
+---
+
+## 🧰 Configuration Summary
+
+| Component               | Value                                              |
+|--------------------------|----------------------------------------------------|
+| **Tool Used**           | SQL Developer (OEM Alternative)                    |
+| **PDB Name**            | `mon_27830_MA_DB`                  |
+| **User Created**        | `27830_Uwumuremyi`                                    |
+| **Password**            | `Honorine`                                           |
+| **Privileges Granted**  | Full DBA privileges                                |
+| **Purpose**             | Moonlight Agency PL/SQL Development Environment    |
+
+---
+
+## 📸 Screenshot: PDB Creation in SQL Developer
+
+![PDB Creation](./screenshots/Phase%20IV/pdb.png)
+
+---
+
+## 📸 Screenshot: User Created and Privileges Granted
+
+![Privileges](./screenshots/Phase%20IV/privileges.png)
+
+---
+
+## 🔑 SQL Scripts Executed
+
+```sql
+ALTER SESSION SET CONTAINER = mon_27830_MA_DB;
+CREATE USER 27830_Uwumurumyi IDENTIFIED BY Honorine;
+GRANT ALL PRIVILEGES TO ;
+GRANT SYSDBA TO hpnorine27830;
+
+
+# 🧱 Phase V: Table Implementation and Data Insertion
+
+## 🎯 Objective
+
+This phase implements the physical database structure for the **Moonlight Agency Management System**.  
+All tables from the logical model were created in SQL Developer inside the schema:
+
+**`mon_27830_hpnorine_moonlight_db`**
+
+Realistic sample data was then inserted to simulate real celebrity management operations such as bookings, payments, awards, and notifications.
+
+---
+
+## 🔨 Step 1: Table Creation
+
+All tables were created successfully according to the normalized design.
+
+---
+
+### 🧱 Table: CELEBRITY
+
+![Celebrity Table Created](./screenshots/Phase%20V/celebrity_created.png)
+
+---
+
+### 🧱 Table: BRAND
+
+![Brand Table Created](./screenshots/Phase%20V/brand_created.png)
+
+---
+
+### 🧱 Table: BOOKING
+
+![Booking Table Created](./screenshots/Phase%20V/booking_created.png)
+
+---
+
+### 🧱 Table: PAYMENT
+
+![Payment Table Created](./screenshots/Phase%20V/payment_created.png)
+
+---
+
+### 🧱 Table: AWARDS
+
+![Awards Table Created](./screenshots/Phase%20V/awards_created.png)
+
+---
+
+### 🧱 Table: NOTIFICATIONS
+
+![Notifications Table Created](./screenshots/Phase%20V/notifications_created.png)
+
+---
+
+## 📥 Step 2: Data Insertion
+
+Realistic data entries were inserted into each table to reflect actual entertainment agency operations.
+
+---
+
+### 🗃️ Insertion: CELEBRITY
+
+![Celebrity Data Inserted](./screenshots/Phase%20V/celebrity_data.png)
+
+---
+
+### 🗃️ Insertion: BRAND
+
+![Brand Data Inserted](./screenshots/Phase%20V/brand_data.png)
+
+---
+
+### 🗃️ Insertion: BOOKING
+
+![Booking Data Inserted](./screenshots/Phase%20V/booking_data.png)
+
+---
+
+### 🗃️ Insertion: PAYMENT
+
+![Payment Data Inserted](./screenshots/Phase%20V/payment_data.png)
+
+---
+
+### 🗃️ Insertion: AWARDS
+
+![Awards Data Inserted](./screenshots/Phase%20V/awards_data.png)
+
+---
+
+### 🗃️ Insertion: NOTIFICATIONS
+
+![Notifications Data Inserted](./screenshots/Phase%20V/notifications_data.png)
+
+---
+
+## 🔍 Step 3: Data Integrity Validation
+
+A join query was executed to verify foreign key relationships and confirm data consistency across entities.
+
+> ✅ Validation Results:
+- Celebrity to booking relationships match correctly  
+- Brand to booking connections are valid  
+- Payments are linked to existing bookings  
+- Awards reference existing celebrities  
+- No orphaned or invalid foreign key values  
+- Data behaves as expected under business rules  
+
+![Data Integrity Output](./screenshots/Phase%20V/data_integrity.png)
+
+---
+
+## ✅ End of Phase V
+
+
+# 🔧 Phase VI: PL/SQL Programming (Procedures, Functions, Triggers, Packages)
+
+### 🎯 Objective
+
+To implement business logic for the **Moonlight Agency Management System** directly inside the Oracle database using PL/SQL.  
+This includes automating bookings, handling payments, generating alerts, detecting schedule conflicts, and centralizing reusable operations through packages.
+
+---
+
+## 🧱 Database Operations
+
+### 🔁 DML Operations
+- `INSERT`, `UPDATE`, `DELETE` were used to manipulate celebrity, booking, payment, award, and brand records.
+- Example: Updating booking status, inserting new payment entries, deleting cancelled bookings.
+
+![DML](./screenshots/Phase%20VI/DML.png)
+
+---
+
+### 🧩 DDL Operations
+- `CREATE`, `ALTER`, and `DROP` were used to modify and refine database structures.
+- Example: Adding timestamp fields to notifications, adjusting booking constraints during testing.
+
+![DDL](./screenshots/Phase%20VI/DDL.png)
+
+---
+
+## 💡 Simple Analytics Problem Statement
+
+> “Analyze how many bookings each celebrity has to understand workload distribution and revenue potential.”
+
+This was implemented using a **window function** on the `BOOKING` table.
+
+```sql
+SELECT 
+    c.full_name,
+    b.celebrity_id,
+    COUNT(b.booking_id) OVER (PARTITION BY b.celebrity_id) AS total_bookings
+FROM booking b
+JOIN celebrity c ON b.celebrity_id = c.celebrity_id;
