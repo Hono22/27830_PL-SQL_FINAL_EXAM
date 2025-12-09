@@ -508,17 +508,3 @@ This includes automating bookings, handling payments, generating alerts, detecti
 ![DDL](./screenshots/Phase%20VI/DDL.png)
 
 ---
-
-## 💡 Simple Analytics Problem Statement
-
-> “Analyze how many bookings each celebrity has to understand workload distribution and revenue potential.”
-
-This was implemented using a **window function** on the `BOOKING` table.
-
-```sql
-SELECT 
-    c.full_name,
-    b.celebrity_id,
-    COUNT(b.booking_id) OVER (PARTITION BY b.celebrity_id) AS total_bookings
-FROM booking b
-JOIN celebrity c ON b.celebrity_id = c.celebrity_id;
