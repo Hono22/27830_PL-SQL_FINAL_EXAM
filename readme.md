@@ -139,12 +139,12 @@ The MIS ensures smoother agency operations by reducing manual errors, improving 
 ---
 
 ### 🔗 Mermaid Diagram  
-![Mermaid Diagram](./screenshots/Phase%20II/moonlightPhaseII.png)
+![Mermaid Diagram](./screenshots/Phase%20II/Flowchart.png)
 
 ---
 
 ### 🧩 Draw.io BPMN Diagram  
-![Draw.io Diagram](./screenshots/Phase%20II/moonlightPhaseII.drawio.png)
+![Draw.io Diagram](./screenshots/Phase%20II/BPMN.png)
 
 ---
 
